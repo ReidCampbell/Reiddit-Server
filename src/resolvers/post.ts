@@ -81,10 +81,10 @@ export class PostResolver {
         await tm.query(
           `insert into updoot ("userId", "postId", value)
           values ($1, $2, $3)`,
-          [req.session.userId, post.id, 1]
+          [req.session.userId, post.id, 0]
         );
       });
-      return 1;
+      return null;
     }
 
     return updoot ? updoot.value : null;
